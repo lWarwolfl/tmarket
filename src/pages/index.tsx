@@ -1,4 +1,4 @@
-import { ProductCard } from '@/components/landing/ProductCard'
+import { ProductCard } from '@/components/pages/landing/ProductCard'
 import { SkeletonCard } from '@/components/utils/SkeletonCard'
 import { PRODUCTS_KEY, getProducts, useGetProducts } from '@/lib/apis/useGetProducts'
 import { QueryClient, dehydrate } from '@tanstack/react-query'

@@ -1,5 +1,5 @@
-import { ProductAddReviewForm } from '@/components/product/ProductAddReviewForm'
-import { ProductReviewCard } from '@/components/product/ProductReviewCard'
+import { ProductAddReviewForm } from '@/components/pages/product/ProductAddReviewForm'
+import { ProductReviewCard } from '@/components/pages/product/ProductReviewCard'
 import { type ReviewInterface } from '@/lib/apis/useGetReviews'
 
 interface Props {

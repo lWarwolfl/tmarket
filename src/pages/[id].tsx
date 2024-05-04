@@ -1,5 +1,5 @@
-import { ProductDetails } from '@/components/product/ProductDetails'
-import { ProductReviews } from '@/components/product/ProductReviews'
+import { ProductDetails } from '@/components/pages/product/ProductDetails'
+import { ProductReviews } from '@/components/pages/product/ProductReviews'
 import Breadcrumbs from '@/components/utils/Breadcrumbs'
 import { SkeletonCard } from '@/components/utils/SkeletonCard'
 import { getProduct, useGetProduct } from '@/lib/apis/useGetProduct'

@@ -1,4 +1,4 @@
-import { ProductAddToCartForm } from '@/components/product/ProductAddToCartForm'
+import { ProductAddToCartForm } from '@/components/pages/product/ProductAddToCartForm'
 import { type ProductInterface } from '@/lib/apis/useGetProducts'
 import Image from 'next/image'
 
