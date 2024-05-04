@@ -3,7 +3,16 @@ import axios from '@/lib/axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 
-export const addReview = async (body: ReviewInterface) => {
+export interface ReviewAddInterface {
+  createdAt: string
+  name: string
+  avatar: string
+  review: string
+  rate: string
+  productId: string
+}
+
+export const addReview = async (body: ReviewAddInterface) => {
   const { data } = await axios.post('/products/' + body.productId + '/reviews', body)
 
   return data

@@ -1,4 +1,5 @@
-import { ProductDetail } from '@/components/product/ProductDetail'
+import { ProductDetails } from '@/components/product/ProductDetails'
+import { ProductReviews } from '@/components/product/ProductReviews'
 import Breadcrumbs from '@/components/utils/Breadcrumbs'
 import { SkeletonCard } from '@/components/utils/SkeletonCard'
 import { getProduct, useGetProduct } from '@/lib/apis/useGetProduct'
@@ -49,8 +50,17 @@ export default function Product(props: InferGetServerSidePropsType<typeof getSer
         {productQuery.isLoading ? (
           <SkeletonCard />
         ) : productQuery.data && productQuery.data.name ? (
-          <ProductDetail {...productQuery.data} />
-        ) : null}
+          <>
+            <ProductDetails {...productQuery.data} />
+            {reviewQuery.data?.length && reviewQuery.data.length > 0 ? (
+              <ProductReviews productId={props.productId!} items={reviewQuery.data} />
+            ) : (
+              <SkeletonCard />
+            )}
+          </>
+        ) : (
+          <SkeletonCard />
+        )}
       </div>
     </>
   )

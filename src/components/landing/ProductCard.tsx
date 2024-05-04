@@ -3,7 +3,7 @@ import { type ProductInterface } from '@/lib/apis/useGetProducts'
 import { Icon } from '@iconify-icon/react'
 import Image from 'next/image'
 
-export function ProductItem(props: ProductInterface) {
+export function ProductCard(props: ProductInterface) {
   return (
     <Card className="flex flex-col overflow-hidden">
       <Image

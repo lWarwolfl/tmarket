@@ -1,4 +1,4 @@
-import { ProductItem } from '@/components/landing/ProductItem'
+import { ProductCard } from '@/components/landing/ProductCard'
 import { SkeletonCard } from '@/components/utils/SkeletonCard'
 import { PRODUCTS_KEY, getProducts, useGetProducts } from '@/lib/apis/useGetProducts'
 import { QueryClient, dehydrate } from '@tanstack/react-query'
@@ -42,7 +42,7 @@ export default function Home() {
       ) : productQuery.data?.length && productQuery.data.length > 0 ? (
         productQuery.data.map((item, index) => (
           <Link key={index} href={`/${item.id}`}>
-            <ProductItem {...item} />
+            <ProductCard {...item} />
           </Link>
         ))
       ) : null}

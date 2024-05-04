@@ -13,13 +13,13 @@ export interface ReviewInterface {
   productId: string
 }
 
-export const getReviews = async (productId: string) => {
+export const getReviews = async (productId: ReviewInterface['productId']) => {
   const { data } = await axios.get<ReviewInterface[]>('/products/' + productId + '/reviews')
 
   return data
 }
 
-export const useGetReviews = (productId: string) => {
+export const useGetReviews = (productId: ReviewInterface['productId']) => {
   return {
     query: useQuery({
       queryFn: () => getReviews(productId),

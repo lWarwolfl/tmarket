@@ -1,8 +1,8 @@
-import { ProductAddForm } from '@/components/product/ProductAddForm'
+import { ProductAddToCartForm } from '@/components/product/ProductAddToCartForm'
 import { type ProductInterface } from '@/lib/apis/useGetProducts'
 import Image from 'next/image'
 
-export function ProductDetail(props: ProductInterface) {
+export function ProductDetails(props: ProductInterface) {
   return (
     <div className="flex flex-col gap-4">
       <Image
@@ -22,7 +22,7 @@ export function ProductDetail(props: ProductInterface) {
         <div className="text-sm text-muted-foreground">{props.description}</div>
       </div>
 
-      <ProductAddForm {...props} />
+      <ProductAddToCartForm {...props} />
     </div>
   )
 }

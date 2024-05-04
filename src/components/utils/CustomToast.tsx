@@ -12,7 +12,7 @@ export function CustomToast({ t }: Props) {
       className={cn(
         'xs:p-4 w-dvw max-w-md break-words rounded-md border border-solid border-border bg-card/50 p-2 text-sm backdrop-blur-sm',
         {
-          ['border-accent']: t.type === 'success',
+          ['border-primary']: t.type === 'success',
           ['border-destructive']: t.type === 'error',
         }
       )}
@@ -26,7 +26,7 @@ export function CustomToast({ t }: Props) {
               : 'svg-spinners:90-ring-with-bg'
         }
         className={cn('mr-1.5 align-top text-2xl', {
-          ['text-accent']: t.type === 'success',
+          ['text-primary']: t.type === 'success',
           ['text-destructive']: t.type === 'error',
         })}
       />

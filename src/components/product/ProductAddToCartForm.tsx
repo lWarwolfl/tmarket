@@ -29,7 +29,7 @@ const FormSchema = z.object({
   }),
 })
 
-export function ProductAddForm(props: ProductInterface) {
+export function ProductAddToCartForm(props: ProductInterface) {
   const { addItemToCart } = useStore()
 
   const form = useForm<z.infer<typeof FormSchema>>({
