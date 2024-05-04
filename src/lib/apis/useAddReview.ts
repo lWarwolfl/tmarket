@@ -1,4 +1,4 @@
-import { REVIEWS_KEY, type ReviewInterface } from '@/lib/apis/useGetReviews'
+import { REVIEWS_KEY } from '@/lib/apis/useGetReviews'
 import axios from '@/lib/axios'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
