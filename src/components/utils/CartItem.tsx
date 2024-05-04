@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { type CartItemInterface } from '@/lib/interfaces'
+import { type CartItemInterface } from '@/lib/store'
 import { Icon } from '@iconify-icon/react'
 
 export function CartItem(props: Partial<CartItemInterface>) {

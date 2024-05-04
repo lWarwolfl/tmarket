@@ -1,12 +1,17 @@
 import MainLayout from '@/components/layout/MainLayout'
 import { CustomToast } from '@/components/utils/CustomToast'
 import { ThemeProvider } from '@/components/utils/ThemeProvider'
+import ReactQueryProvider from '@/lib/ReactQueryProvider'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
 
-export default function App({ Component, pageProps }: AppProps) {
+interface PageProps extends AppProps {
+  dehydratedState: unknown
+}
+
+export default function App({ Component, pageProps }: PageProps) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setTimeout(() => {
@@ -29,15 +34,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <Toaster position="bottom-center" reverseOrder={false}>
-        {(t) => {
-          return <CustomToast t={t} />
-        }}
-      </Toaster>
+      <ReactQueryProvider dehydratedState={pageProps.dehydratedState}>
+        <Toaster position="bottom-right" reverseOrder={false}>
+          {(t) => {
+            return <CustomToast t={t} />
+          }}
+        </Toaster>
 
-      <MainLayout>
-        <Component {...pageProps} />
-      </MainLayout>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </ReactQueryProvider>
     </ThemeProvider>
   )
 }

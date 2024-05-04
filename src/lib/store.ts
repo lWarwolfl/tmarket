@@ -1,6 +1,12 @@
-import { type CartItemInterface } from '@/lib/interfaces'
+import { type ProductInterface } from '@/lib/apis/useGetProducts'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+
+export interface CartItemInterface extends ProductInterface {
+  size: 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'
+  color: 'purple' | 'green' | 'blue' | 'aqua' | 'white' | 'pink' | 'yellow' | 'red' | 'orange'
+  quantity: number
+}
 
 interface StoreState {
   cart: CartItemInterface[]
