@@ -26,7 +26,7 @@ export function ThemeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start">
+      <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme('light')} className="flex gap-2">
           <Icon icon="line-md:sunny-outline-loop" className="text-xl" />
           Light

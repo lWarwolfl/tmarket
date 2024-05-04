@@ -1,3 +1,4 @@
+import { Cart } from '@/components/utils/Cart'
 import { ThemeToggle } from '@/components/utils/ThemeToggle'
 import logo from '@public/logo.png'
 import Image from 'next/image'
@@ -11,6 +12,7 @@ export default function Header() {
       </div>
 
       <div className="inline-flex gap-3">
+        <Cart />
         <ThemeToggle />
       </div>
     </div>

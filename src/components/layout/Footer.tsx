@@ -11,7 +11,11 @@ export default function Footer() {
 
       <div className="flex max-w-5xl items-center justify-center gap-2 text-center text-sm">
         Developed by
-        <a href="https://github.com/lWarwolfl/blockt" target="_blank" className="flex items-center">
+        <a
+          href="https://github.com/lWarwolfl/blockt"
+          target="_blank"
+          className="flex items-center gap-1"
+        >
           <Icon icon="bxl:github" className="text-lg" />
           lWarwolfl
         </a>

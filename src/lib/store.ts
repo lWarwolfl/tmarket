@@ -1,35 +1,41 @@
+import { type CartItemInterface } from '@/lib/interfaces'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface StoreState {
-  walletAddress: string
-  metamask: boolean
-  update: number
-  rerender: number
-  network: boolean
-  setWalletAddress: (walletAddress: string) => void
-  setMetamask: (metamask: boolean) => void
-  updateNow: () => void
-  rerenderNow: () => void
-  setNetwork: (network: boolean) => void
+  cart: CartItemInterface[]
+  addItemToCart: (item: CartItemInterface) => void
+  deleteItemFromCart: (id: CartItemInterface['id']) => void
 }
 
 export const useStore = create(
   persist<StoreState>(
-    (set, get) => ({
-      walletAddress: '',
-      metamask: false,
-      update: 0,
-      rerender: 0,
-      network: false,
-      setWalletAddress: (walletAddress) => set({ walletAddress: walletAddress }),
-      setMetamask: (metamask) => set({ metamask: metamask }),
-      updateNow: () => set({ update: get().update + 1 }),
-      rerenderNow: () => set({ rerender: get().rerender + 1 }),
-      setNetwork: (network) => set({ network: network }),
+    (set) => ({
+      cart: [],
+      addItemToCart: (item: CartItemInterface) =>
+        set((state) => {
+          const exists = state.cart.find((cartItem) => cartItem.id === item.id)
+          if (exists) {
+            return {
+              cart: state.cart.map((cartItem) =>
+                cartItem.id === item.id
+                  ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                  : cartItem
+              ),
+            }
+          } else {
+            return { cart: [...state.cart, { ...item, quantity: 1 }] }
+          }
+        }),
+      deleteItemFromCart: (id: CartItemInterface['id']) =>
+        set((state) => {
+          return {
+            cart: state.cart.filter((cartItem) => cartItem.id !== id),
+          }
+        }),
     }),
     {
-      name: 'blockt',
+      name: 'tmarket',
     }
   )
 )

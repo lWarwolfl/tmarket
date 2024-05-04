@@ -4,6 +4,16 @@
 
 @layer base {
   :root {
+    --green-color: #40c463;
+    --purple-color: #c851ff;
+    --blue-color: #448fff;
+    --aqua-color: #5fdfff;
+    --white-color: #f1f1f1;
+    --pink-color: #da3dca;
+    --yellow-color: #dbd341;
+    --red-color: #d34339;
+    --orange-color: #ff9421;
+
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;

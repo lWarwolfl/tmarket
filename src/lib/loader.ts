@@ -1,5 +1,4 @@
-import logodark from '@public/logo-dark.png'
-import logolight from '@public/logo-light.png'
+import logo from '@public/logo.png'
 
 export const loader = `
 * {
@@ -22,10 +21,6 @@ body {
     #globalLoader.loaded {
         background-color: hsla(240, 10%, 3.9%, 0.4);
     }
-
-    .loader {
-        background-image: url(${logodark.src});
-    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -35,10 +30,6 @@ body {
 
     #globalLoader.loaded {
         background-color: hsla(0, 0%, 100%, 0.4);
-    }
-
-    .loader {
-        background-image: url(${logolight.src});
     }
 }
 
@@ -57,15 +48,6 @@ html.light #globalLoader {
 html.light #globalLoader.loaded {
     background-color: hsla(0, 0%, 100%, 0.4);
 }
-
-html.dark .loader {
-    background-image: url(${logodark.src});
-}
-
-html.light .loader {
-    background-image: url(${logolight.src});
-}
-
 
 #globalLoader {
     position: fixed;
@@ -90,6 +72,7 @@ html.light .loader {
     background-size: contain;
     background-repeat: no-repeat;
     transform-style: preserve-3d;
+    background-image: url(${logo.src});
 }
 
 @keyframes spin {
