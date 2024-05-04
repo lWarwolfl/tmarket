@@ -12,8 +12,8 @@ export function ProductReviews({ items, productId }: Props) {
     <div className="flex flex-col gap-4">
       <ProductAddReviewForm productId={productId} />
 
-      {items.map((item, index) => (
-        <ProductReviewCard key={index} {...item} />
+      {items.map((item) => (
+        <ProductReviewCard key={item.id} {...item} />
       ))}
     </div>
   )

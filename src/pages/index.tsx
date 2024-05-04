@@ -40,8 +40,8 @@ export default function Home() {
           }}
         </>
       ) : productQuery.data?.length && productQuery.data.length > 0 ? (
-        productQuery.data.map((item, index) => (
-          <Link key={index} href={`/${item.id}`}>
+        productQuery.data.map((item) => (
+          <Link key={item.id} href={`/${item.id}`}>
             <ProductCard {...item} />
           </Link>
         ))
