@@ -1,6 +1,9 @@
+import { ProductDetail } from '@/components/product/ProductDetail'
+import Breadcrumbs from '@/components/utils/Breadcrumbs'
 import { SkeletonCard } from '@/components/utils/SkeletonCard'
 import { getProduct, useGetProduct } from '@/lib/apis/useGetProduct'
 import { PRODUCTS_KEY } from '@/lib/apis/useGetProducts'
+import { REVIEWS_KEY, getReviews, useGetReviews } from '@/lib/apis/useGetReviews'
 import { QueryClient, dehydrate } from '@tanstack/react-query'
 import { isAxiosError } from 'axios'
 import { type GetServerSideProps, type InferGetServerSidePropsType } from 'next'
@@ -17,6 +20,11 @@ export const getServerSideProps = (async ({ params }) => {
       queryFn: () => getProduct(productId),
     })
 
+    await queryClient.prefetchQuery({
+      queryKey: [REVIEWS_KEY],
+      queryFn: () => getReviews(productId),
+    })
+
     return {
       props: {
         productId,
@@ -31,10 +39,19 @@ export const getServerSideProps = (async ({ params }) => {
 
 export default function Product(props: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { query: productQuery } = useGetProduct(props.productId!)
+  const { query: reviewQuery } = useGetReviews(props.productId!)
 
   return (
-    <div className="mb-10 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {productQuery.isLoading ? <SkeletonCard /> : productQuery.data?.name}
-    </div>
+    <>
+      <Breadcrumbs items={[{ name: productQuery.data?.name, link: '/' + props.productId }]} />
+
+      <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {productQuery.isLoading ? (
+          <SkeletonCard />
+        ) : productQuery.data && productQuery.data.name ? (
+          <ProductDetail {...productQuery.data} />
+        ) : null}
+      </div>
+    </>
   )
 }

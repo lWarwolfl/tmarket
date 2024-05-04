@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Header() {
   return (
-    <div className="z-10 mb-6 flex w-full max-w-5xl items-center justify-between">
+    <div className="z-10 mb-6 flex items-center justify-between">
       <div className="pointer-events-none flex items-center gap-2 font-medium">
         <Image className="h-auto w-8" src={logo} alt="logo" />
         TMarket

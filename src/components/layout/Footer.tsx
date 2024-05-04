@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <div className="flex w-full items-center justify-center gap-2">
+    <div className="flex items-center justify-center gap-2">
       <div className="pointer-events-none flex place-items-center gap-2 text-sm font-medium">
         <Image className="h-auto w-7" src={logo} alt="logo" /> TMarket
       </div>
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="flex max-w-5xl items-center justify-center gap-2 text-center text-sm">
         Developed by
         <a
-          href="https://github.com/lWarwolfl/blockt"
+          href="https://github.com/lWarwolfl/tmarket"
           target="_blank"
           className="flex items-center gap-1"
         >

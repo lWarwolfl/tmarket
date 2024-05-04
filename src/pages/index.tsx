@@ -30,7 +30,7 @@ export default function Home() {
   const { query: productQuery } = useGetProducts()
 
   return (
-    <div className="mb-10 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {productQuery.isLoading ? (
         <>
           {() => {
@@ -39,13 +39,13 @@ export default function Home() {
             }
           }}
         </>
-      ) : (
-        productQuery.data?.map((item, index) => (
+      ) : productQuery.data?.length && productQuery.data.length > 0 ? (
+        productQuery.data.map((item, index) => (
           <Link key={index} href={`/${item.id}`}>
             <ProductItem {...item} />
           </Link>
         ))
-      )}
+      ) : null}
     </div>
   )
 }

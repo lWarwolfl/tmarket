@@ -19,7 +19,9 @@ export default function MainLayout({ children }: Props) {
     <>
       <CustomHead />
 
-      <main className={cn('flex flex-col items-center gap-6 p-6 lg:p-24', font.className)}>
+      <main
+        className={cn('mx-auto flex w-full max-w-6xl flex-col gap-6 p-6 lg:p-24', font.className)}
+      >
         <Header />
         {children}
         <Footer />

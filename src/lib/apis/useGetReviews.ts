@@ -1,7 +1,7 @@
 import axios from '@/lib/axios'
 import { useQuery } from '@tanstack/react-query'
 
-export const Reviews_KEY = 'reviews'
+export const REVIEWS_KEY = 'reviews'
 
 export interface ReviewInterface {
   createdAt: string
@@ -14,7 +14,7 @@ export interface ReviewInterface {
 }
 
 export const getReviews = async (productId: string) => {
-  const { data } = await axios.get<ReviewInterface[]>('/Reviews/' + productId + 'reviews')
+  const { data } = await axios.get<ReviewInterface[]>('/products/' + productId + '/reviews')
 
   return data
 }
@@ -23,7 +23,7 @@ export const useGetReviews = (productId: string) => {
   return {
     query: useQuery({
       queryFn: () => getReviews(productId),
-      queryKey: [Reviews_KEY, productId],
+      queryKey: [REVIEWS_KEY, productId],
     }),
   }
 }

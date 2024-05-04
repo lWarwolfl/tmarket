@@ -1,8 +1,6 @@
-import { type ProductInterface } from '@/lib/apis/useGetProducts'
+import { PRODUCTS_KEY, type ProductInterface } from '@/lib/apis/useGetProducts'
 import axios from '@/lib/axios'
 import { useQuery } from '@tanstack/react-query'
-
-export const PRODUCTS_KEY = 'products'
 
 export const getProduct = async (id: string) => {
   const { data } = await axios.get<ProductInterface>('/products/' + id)
