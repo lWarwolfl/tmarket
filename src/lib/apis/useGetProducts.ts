@@ -1,7 +1,7 @@
 import axios from '@/lib/axios'
 import { useQuery } from '@tanstack/react-query'
 
-const Q_KEY = 'products'
+export const PRODUCTS_KEY = 'products'
 
 export interface ProductInterface {
   createdAt: string
@@ -15,16 +15,16 @@ export interface ProductInterface {
 }
 
 export const getProducts = async () => {
-  const { data: result } = await axios.post<ProductInterface>('/package/findAll')
+  const { data } = await axios.get<ProductInterface[]>('/products')
 
-  return result
+  return data
 }
 
 export const useGetProducts = () => {
   return {
     query: useQuery({
       queryFn: () => getProducts(),
-      queryKey: [Q_KEY],
+      queryKey: [PRODUCTS_KEY],
     }),
   }
 }

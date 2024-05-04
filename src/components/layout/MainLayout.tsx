@@ -19,12 +19,7 @@ export default function MainLayout({ children }: Props) {
     <>
       <CustomHead />
 
-      <main
-        className={cn(
-          'flex h-dvh min-h-fit flex-col items-center gap-6 p-6 lg:p-24',
-          font.className
-        )}
-      >
+      <main className={cn('flex flex-col items-center gap-6 p-6 lg:p-24', font.className)}>
         <Header />
         {children}
         <Footer />

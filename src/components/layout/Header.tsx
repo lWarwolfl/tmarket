@@ -1,5 +1,5 @@
-import { Cart } from '@/components/utils/Cart'
-import { ThemeToggle } from '@/components/utils/ThemeToggle'
+import { Cart } from '@/components/layout/Cart'
+import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import logo from '@public/logo.png'
 import Image from 'next/image'
 

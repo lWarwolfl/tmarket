@@ -1,3 +1,4 @@
+import { CartItem } from '@/components/layout/CartItem'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -6,7 +7,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { CartItem } from '@/components/utils/CartItem'
 import { Icon } from '@iconify-icon/react'
 
 export function Cart() {
