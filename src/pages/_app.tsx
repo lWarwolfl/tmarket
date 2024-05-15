@@ -3,6 +3,7 @@ import { CustomToast } from '@/components/utils/CustomToast'
 import { ThemeProvider } from '@/components/utils/ThemeProvider'
 import ReactQueryProvider from '@/lib/ReactQueryProvider'
 import '@/styles/globals.css'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
@@ -34,6 +35,7 @@ export default function App({ Component, pageProps }: PageProps) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <SpeedInsights />
       <ReactQueryProvider dehydratedState={pageProps.dehydratedState}>
         <Toaster position="bottom-right" reverseOrder={false}>
           {(t) => {
