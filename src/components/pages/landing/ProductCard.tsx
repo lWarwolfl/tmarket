@@ -1,11 +1,12 @@
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { type ProductInterface } from '@/lib/apis/useGetProducts'
 import { Icon } from '@iconify-icon/react'
+import Image from 'next/image'
 
 export function ProductCard(props: ProductInterface) {
   return (
     <Card className="flex flex-col overflow-hidden">
-      <img
+      <Image
         src={`https://api.dicebear.com/9.x/shapes/svg?seed=${props.name}`}
         alt={props.name}
         width={640}

@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
-  dangerouslyAllowSVG: true,
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
