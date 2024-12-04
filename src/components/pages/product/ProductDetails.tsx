@@ -7,7 +7,7 @@ export function ProductDetails(props: ProductInterface) {
     <div className="flex flex-col gap-4">
       <Image
         priority={true}
-        src={props.image}
+        src={`https://api.dicebear.com/9.x/shapes/svg?seed=${Math.random()}`}
         alt={props.name}
         width={640}
         height={480}

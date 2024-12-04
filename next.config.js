@@ -1,18 +1,13 @@
 module.exports = {
   reactStrictMode: true,
+  dangerouslyAllowSVG: true,
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'loremflickr.com',
+        hostname: 'api.dicebear.com',
         port: '',
-        pathname: '/640/480/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cloudflare-ipfs.com',
-        port: '',
-        pathname: '/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/**',
+        pathname: '/9.x/**',
       },
     ],
   },
