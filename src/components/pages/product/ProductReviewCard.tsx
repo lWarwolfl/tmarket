@@ -2,19 +2,17 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/comp
 import { type ReviewInterface } from '@/lib/apis/useGetReviews'
 import { Icon } from '@iconify-icon/react'
 import dayjs from 'dayjs'
-import Image from 'next/image'
 
 export function ProductReviewCard(props: ReviewInterface) {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center gap-4">
-        <Image
-          src={`https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${Math.random()}`}
+        <img
+          src={`https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${props.name}`}
           alt={props.name}
           width={64}
           height={64}
           className="h-12 w-12 rounded-full object-cover"
-          quality={80}
         />
 
         <div className="!mt-0 flex w-full flex-col">
